@@ -1,14 +1,16 @@
 import React, { useState, Fragment } from 'react';
 
 function Counter(props) {
-  const [count, setState] = useState(0);
-  // const count = array[0]; // this is equivalent to this.state.count in class component
-  // const setState = array[1];  // this.setState()
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState('');
 
   return (
     <Fragment>
-      <div>Counter: {count}</div>
-      <button onClick={() => setState(count + 1)}>Increase</button>
+      <input type='text' onChange={(e) => setName(e.target.value)} />
+      <div>
+        {name} has clicked {count} times!
+      </div>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </Fragment>
   );
 }
